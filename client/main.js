@@ -42,6 +42,9 @@ Router.route('/chat/:_id', function () {
 ///
 Template.available_user_list.helpers({
     users:function(){
+        if(!Meteor.user()) {
+            return;
+        }
         return Meteor.users.find();
     }
 });
